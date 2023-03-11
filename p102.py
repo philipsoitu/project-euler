@@ -27,8 +27,8 @@ for trig in yoo:
     e = math.sqrt(x2**2 + y2**2)
     f = math.sqrt(x3**2 + y3**2)
 
-    if (a+b+c)>(d+e+f):
-        num+=1
+
+    # check if overlap
+
 
 print(num)
-
