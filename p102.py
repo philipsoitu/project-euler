@@ -31,3 +31,4 @@ for trig in yoo:
         num+=1
 
 print(num)
+
