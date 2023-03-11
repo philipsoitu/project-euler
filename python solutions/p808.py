@@ -28,7 +28,7 @@ sum = 0
 
 while numOfPallindromesFound<50:
     p = nextPrime(p)
-    if isPrime(sqrt(p[-1])):
+    if isPrime(math.sqrt(p[-1])):
         numOfPallindromesFound+=1
         sum+=p[-1]
 
