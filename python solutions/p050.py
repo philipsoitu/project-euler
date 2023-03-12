@@ -50,5 +50,5 @@ for i in range(len(primes)):
         if sum>n:
             break
         
-        if isPrime(sum, primes):
-            if (j-i)>highestCons
+        # if isPrime(sum, primes):
+        #     if (j-i)>highestCons
