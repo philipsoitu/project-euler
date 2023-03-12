@@ -32,5 +32,3 @@ for num in S:
     ans += num*cum
 
 print(ans)
-
-# 17068293213495822407416904223283800

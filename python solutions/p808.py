@@ -32,3 +32,5 @@ while numOfPallindromesFound<50:
         numOfPallindromesFound+=1
         sum+=p[-1]
 
+
+# wip

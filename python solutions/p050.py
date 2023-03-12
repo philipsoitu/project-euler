@@ -1,6 +1,17 @@
 import math
 
 
+def isPrime(n, primes):
+    lim = math.sqrt(n)
+    for p in primes:
+        if n % p == 0:
+            return False
+
+        if lim < p:
+            break
+    return True
+
+
 def primesUntil(n):
     primes = [2]
     for i in range(3, n, 2):
@@ -19,23 +30,25 @@ def primesUntil(n):
     return (primes)
 
 
-n = 50
+n = 1000000
 
 primes = primesUntil(n)
-highestJ = 0
-ans = 0
-sum=0
+
+highestCons = 0
+highestPrime = 0
+
 
 for i in range(len(primes)):
-    sum += primes[i]
-    for j in range(i+1,len(primes)):
-        sum+= primes[j]
-        if not(sum in primes) or sum>n:
-            sum-=primes[j]
-            break
-    
-    if (j-i)> highestJ:
-        ans = sum
-        highestJ = j
+    sum = primes[i]
 
-print(ans)
+    if sum > n:
+        break
+
+    for j in range(i+1, len(primes)-i):
+        sum += primes[j]
+        
+        if sum>n:
+            break
+        
+        if isPrime(sum, primes):
+            if (j-i)>highestCons
