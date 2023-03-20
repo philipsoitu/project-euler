@@ -1,54 +1,37 @@
 import math
+from eulerlibrary import *
 
 
-def isPrime(n, primes):
-    lim = math.sqrt(n)
-    for p in primes:
-        if n % p == 0:
-            return False
-
-        if lim < p:
-            break
-    return True
+def sum(array, startIndex, endIndex):
+    ans = 0
+    for i in range(startIndex, endIndex):
+        ans += array[i]
+    return ans
 
 
-def primesUntil(n):
-    primes = [2]
-    for i in range(3, n, 2):
-
-        isPrime = True
-        squirt = math.sqrt(i)
-        for j in primes:
-            if i % j == 0:
-                isPrime = False
-
-            if not (isPrime) or j > squirt:
-                break
-        if isPrime:
-            primes.append(i)
-            print(i)
-    return (primes)
-
-
-n = 1000000
+n = 100
 
 primes = primesUntil(n)
 
-highestCons = 0
-highestPrime = 0
+startIndex = 0
+endIndex = 1
 
+highestConsecutives = 0
+ans = 0
 
-for i in range(len(primes)):
-    sum = primes[i]
+while startIndex > endIndex:
 
-    if sum > n:
-        break
+    yo = sum(primes, startIndex, endIndex)
+    if yo < n:
+        endIndex += 1
 
-    for j in range(i+1, len(primes)-i):
-        sum += primes[j]
-        
-        if sum>n:
-            break
-        
-        # if isPrime(sum, primes):
-        #     if (j-i)>highestCons
+    if yo > n:
+        startIndex += 1
+        endIndex -= 1
+
+    if isPrime(yo):
+        if endIndex-startIndex>highestConsecutives:
+            highestConsecutives = endIndex-startIndex
+            ans = yo
+
+print(ans)
