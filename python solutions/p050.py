@@ -1,5 +1,5 @@
 import math
-from eulerlibrary import *
+from eulerlibrary import isPrime, primesUntil
 
 
 def sum(array, startIndex, endIndex):
@@ -29,9 +29,8 @@ while startIndex > endIndex:
         startIndex += 1
         endIndex -= 1
 
-    if isPrime(yo):
-        if endIndex-startIndex>highestConsecutives:
-            highestConsecutives = endIndex-startIndex
-            ans = yo
+    if isPrime(yo) and endIndex-startIndex > highestConsecutives:
+        highestConsecutives = endIndex-startIndex
+        ans = yo
 
 print(ans)

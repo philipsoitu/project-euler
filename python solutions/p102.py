@@ -23,10 +23,10 @@ for trig in yoo:
     # check if overlap
     # print(x1,y1,x2,y2,x3,y3)
 
-    area = areaOfTriangle(x1,y1,x2,y2,x3,y3)
-    y = areaOfTriangle(0,0,x2,y2,x3,y3) + areaOfTriangle(x1,y1,0,0,x3,y3) + areaOfTriangle(x1,y1,x2,y2,0,0)
-    if area ==y:
-        num+=1
+    area = areaOfTriangle(x1, y1, x2, y2, x3, y3)
+    y = areaOfTriangle(0, 0, x2, y2, x3, y3) + areaOfTriangle(x1,
+                                                              y1, 0, 0, x3, y3) + areaOfTriangle(x1, y1, x2, y2, 0, 0)
+    if area == y:
+        num += 1
 
 print(num)
-
