@@ -1,6 +1,6 @@
 import math
 
-k = 2000000
+k = 200
 
 points = []
 
