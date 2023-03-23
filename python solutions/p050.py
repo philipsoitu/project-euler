@@ -9,9 +9,10 @@ def sum(array, startIndex, endIndex):
     return ans
 
 
-n = 100
+n = 1000000
+nn = n//4
 
-primes = primesUntil(n)
+primes = primesUntil(nn)
 
 startIndex = 0
 endIndex = 1
@@ -19,7 +20,7 @@ endIndex = 1
 highestConsecutives = 0
 ans = 0
 
-while startIndex > endIndex:
+while startIndex <= endIndex:
 
     yo = sum(primes, startIndex, endIndex)
     if yo < n:
@@ -32,5 +33,6 @@ while startIndex > endIndex:
     if isPrime(yo) and endIndex-startIndex > highestConsecutives:
         highestConsecutives = endIndex-startIndex
         ans = yo
+        print(ans)
 
 print(ans)
