@@ -11,6 +11,15 @@
 #     matrix.append(i.split(","))
 
 
+def clone2Dlist(arr):
+    copyArr = []
+    for x in arr:
+        tempy = []
+        for y in x:
+            tempy.append(y)
+        copyArr.append(tempy)
+    return copyArr
+
 matrix = [[131, 673, 234, 103,  18],
           [201,  96, 342, 965, 150],
           [630, 803, 746, 422, 111],
@@ -18,15 +27,11 @@ matrix = [[131, 673, 234, 103,  18],
           [805, 732, 524,  37, 331]]
 
 
-for x in range(len(matrix))[::-1]:
-    for y in range(len(matrix[x]))[::-1]:
+shortestPath = clone2Dlist(matrix)
 
-        if (y != len(matrix)-1) and (x != len(matrix)-1):
-            matrix[x][y] = int(matrix[x][y]) + min(int(matrix[x+1][y]), int(matrix[x][y+1]))
-        # edge cases
-        elif (y == len(matrix)-1) and (x != len(matrix)-1):
-            matrix[x][y] = int(matrix[x][y]) + int(matrix[x+1][y])
-        elif (y != len(matrix)-1) and (x == len(matrix)-1):
-            matrix[x][y] = int(matrix[x][y]) + int(matrix[x][y+1])
 
+
+for y in range(len(matrix)-1)[::-1]:
+    for x in range(len(matrix[y]))[::-1]:
+        print(f"x: {x} , y: {y} , value: {matrix[x][y]}")
 print(matrix[0][0])
