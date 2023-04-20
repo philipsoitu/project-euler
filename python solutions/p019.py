@@ -12,35 +12,18 @@ A leap year occurs on any year evenly divisible by 4, but not on a century unles
 How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
 """
 
-def isLeapYear(year):
-    return ((year % 4 == 0) and ((year % 100 != 0) or (year % 400 == 0)))
+ans = 0
+day_of_week = 2
+months = [31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
+for y in range(1901, 2001):
 
-def daysInMonth(year, month):
-    table = {
-        0 : 30,
-        1 : 29 if isLeapYear(year) else 28,
-        2 : 31,
-        3 : 30, 
-        4 : 31,
-        5 : 30,
-        6 : 31,
-        7 : 30, 
-        8 : 30,
-        9 : 31,
-        10 : 30,
-        11 : 31
-        }
-    return table[month]
+    months[1] = 28 + (y % 4 == 0 and (y % 100 != 0 or y % 400 == 0))
 
+    for month in months:
+      day_of_week += month % 7
+      if (day_of_week % 7 == 0):
+        ans+=1
+    
 
-def isSunday(daysSince01Jan1900):
-    return ((daysSince01Jan1900+1)%7==0)
-
-
-daysSince01jan1900 = 1
-
-for year in range(1900, 1901):
-    for month in range(12):
-        daysSince01jan1900 += daysInMonth(year, month)
-        print(year, month, isSunday(daysSince01jan1900))
+print(ans)
